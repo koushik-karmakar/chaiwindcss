@@ -1,0 +1,15 @@
+export const position = {
+  'relative':  () => ({ position: 'relative' }),
+  'absolute':  () => ({ position: 'absolute' }),
+  'fixed':     () => ({ position: 'fixed' }),
+  'sticky':    () => ({ position: 'sticky' }),
+  'static':    () => ({ position: 'static' }),
+  'top':       (v) => ({ top: `${v * 4}px` }),
+  'right':     (v) => ({ right: `${v * 4}px` }),
+  'bottom':    (v) => ({ bottom: `${v * 4}px` }),
+  'left':      (v) => ({ left: `${v * 4}px` }),
+  'z':         (v) => ({ zIndex: v }),
+  'inset':     (v) => ({ inset: `${v * 4}px` }),
+  'inset-x':   (v) => ({ left: `${v * 4}px`, right: `${v * 4}px` }),
+  'inset-y':   (v) => ({ top: `${v * 4}px`, bottom: `${v * 4}px` }),
+};

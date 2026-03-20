@@ -1,0 +1,233 @@
+const PALETTE = {
+  white: "#ffffff",
+  black: "#000000",
+  transparent: "transparent",
+  // color shades from 50 to 950 in increments of 50, with some extra 150,
+  //  250, 350, 450, 550, 650, 750, 850 for more granularity
+  red: {
+    50: "#fef2f2",
+    100: "#fee2e2",
+    150: "#fed6d6",
+    200: "#fecaca",
+    250: "#fdb8b8",
+    300: "#fca5a5",
+    350: "#fa8b8b",
+    400: "#f87171",
+    450: "#f45b5b",
+    500: "#ef4444",
+    550: "#e63535",
+    600: "#dc2626",
+    650: "#cb2121",
+    700: "#b91c1c",
+    750: "#a91c1c",
+    800: "#991b1b",
+    850: "#8c1c1c",
+    900: "#7f1d1d",
+    950: "#4c1111",
+  },
+
+  blue: {
+    50: "#eff6ff",
+    100: "#dbeafe",
+    150: "#cde3fe",
+    200: "#bfdbfe",
+    250: "#a9d0fe",
+    300: "#93c5fd",
+    350: "#7ab5fc",
+    400: "#60a5fa",
+    450: "#4e94f8",
+    500: "#3b82f6",
+    550: "#3073f1",
+    600: "#2563eb",
+    650: "#2159e2",
+    700: "#1d4ed8",
+    750: "#1e47c4",
+    800: "#1e40af",
+    850: "#1e3d9d",
+    900: "#1e3a8a",
+    950: "#122353",
+  },
+
+  green: {
+    50: "#f0fdf4",
+    100: "#dcfce7",
+    150: "#ccfadc",
+    200: "#bbf7d0",
+    250: "#a1f3be",
+    300: "#86efac",
+    350: "#68e796",
+    400: "#4ade80",
+    450: "#36d26f",
+    500: "#22c55e",
+    550: "#1cb454",
+    600: "#16a34a",
+    650: "#169244",
+    700: "#15803d",
+    750: "#167339",
+    800: "#166534",
+    850: "#155c31",
+    900: "#14532d",
+    950: "#0c321b",
+  },
+
+  yellow: {
+    50: "#fefce8",
+    100: "#fef9c3",
+    150: "#fef5a7",
+    200: "#fef08a",
+    250: "#fee869",
+    300: "#fde047",
+    350: "#fcd62e",
+    400: "#facc15",
+    450: "#f2c00f",
+    500: "#eab308",
+    550: "#da9f06",
+    600: "#ca8a04",
+    650: "#b67606",
+    700: "#a16207",
+    750: "#93580b",
+    800: "#854d0e",
+    850: "#7b4610",
+    900: "#713f12",
+    950: "#44260b",
+  },
+
+  purple: {
+    50: "#faf5ff",
+    100: "#f3e8ff",
+    150: "#eedfff",
+    200: "#e9d5ff",
+    250: "#e1c5ff",
+    300: "#d8b4fe",
+    350: "#cc9cfd",
+    400: "#c084fc",
+    450: "#b46dfa",
+    500: "#a855f7",
+    550: "#9e44f1",
+    600: "#9333ea",
+    650: "#892bdc",
+    700: "#7e22ce",
+    750: "#7522bb",
+    800: "#6b21a8",
+    850: "#621f98",
+    900: "#581c87",
+    950: "#351151",
+  },
+
+  pink: {
+    50: "#fdf2f8",
+    100: "#fce7f3",
+    150: "#fcdbee",
+    200: "#fbcfe8",
+    250: "#fabcde",
+    300: "#f9a8d4",
+    350: "#f78dc5",
+    400: "#f472b6",
+    450: "#f05da8",
+    500: "#ec4899",
+    550: "#e43888",
+    600: "#db2777",
+    650: "#cd206a",
+    700: "#be185d",
+    750: "#ae1855",
+    800: "#9d174d",
+    850: "#901848",
+    900: "#831843",
+    950: "#4f0e28",
+  },
+
+  gray: {
+    50: "#f9fafb",
+    100: "#f3f4f6",
+    150: "#eceef1",
+    200: "#e5e7eb",
+    250: "#dbdee3",
+    300: "#d1d5db",
+    350: "#b7bcc5",
+    400: "#9ca3af",
+    450: "#848b98",
+    500: "#6b7280",
+    550: "#5b6472",
+    600: "#4b5563",
+    650: "#414b5a",
+    700: "#374151",
+    750: "#2b3544",
+    800: "#1f2937",
+    850: "#18212f",
+    900: "#111827",
+    950: "#0a0e17",
+  },
+
+  orange: {
+    50: "#fff7ed",
+    100: "#ffedd5",
+    150: "#ffe2c0",
+    200: "#fed7aa",
+    250: "#fec98f",
+    300: "#fdba74",
+    350: "#fca658",
+    400: "#fb923c",
+    450: "#fa8329",
+    500: "#f97316",
+    550: "#f26611",
+    600: "#ea580c",
+    650: "#d64d0c",
+    700: "#c2410c",
+    750: "#ae3b0f",
+    800: "#9a3412",
+    850: "#8b3112",
+    900: "#7c2d12",
+    950: "#4a1b0b",
+  },
+
+  teal: {
+    50: "#f0fdfa",
+    100: "#ccfbf1",
+    150: "#b3f9eb",
+    200: "#99f6e4",
+    250: "#7cf0dc",
+    300: "#5eead4",
+    350: "#46dfca",
+    400: "#2dd4bf",
+    450: "#21c6b3",
+    500: "#14b8a6",
+    550: "#11a697",
+    600: "#0d9488",
+    650: "#0e857b",
+    700: "#0f766e",
+    750: "#106a64",
+    800: "#115e59",
+    850: "#125652",
+    900: "#134e4a",
+    950: "#0b2f2c",
+  },
+};
+
+const resolveColor = (name, shade) => {
+  if (shade === undefined || shade === null) {
+    if (!PALETTE[name]) return null;
+    return typeof PALETTE[name] === "string" ? PALETTE[name] : null;
+  }
+  return PALETTE[name]?.[shade] ?? null;
+};
+
+export const colors = {
+  bg: (name, shade) => {
+    const color = resolveColor(name, shade);
+    return color ? { backgroundColor: color } : null;
+  },
+  color: (name, shade) => {
+    const color = resolveColor(name, shade);
+    return color ? { color: color } : null;
+  },
+  "border-color": (name, shade) => {
+    const color = resolveColor(name, shade);
+    return color ? { borderColor: color } : null;
+  },
+  "outline-color": (name, shade) => {
+    const color = resolveColor(name, shade);
+    return color ? { outlineColor: color } : null;
+  },
+};
+
+export { PALETTE };
