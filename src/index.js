@@ -34,6 +34,7 @@ function injectBaseStyles() {
 function init() {
   applyAll();
   startObserver();
+  injectBaseStyles();
 }
 
 if (document.readyState === "loading") {
