@@ -768,12 +768,6 @@ video {
   display: block;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
 input,
 textarea,
 select {
