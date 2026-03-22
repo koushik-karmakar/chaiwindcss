@@ -19,11 +19,7 @@ function injectBaseStyles() {
       max-width: 100%;
       display: block;
     }
-    button {
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
+
     input, textarea, select {
       font: inherit;
     }
